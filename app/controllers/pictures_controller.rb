@@ -11,6 +11,11 @@ class PicturesController < ApplicationController
     Picture.create(pictures_params)
   end
 
+  def destroy
+    picture = Picture.find(params[:id])
+    picture.destroy
+  end
+
   private
   def pictures_params
     params.require(:picture).permit(:description, :family_id)
