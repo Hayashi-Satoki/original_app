@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:edit, :show]
-
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @pictures = Picture.all
@@ -39,6 +39,12 @@ class PicturesController < ApplicationController
 
   def set_picture
     @picture = Picture.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end
