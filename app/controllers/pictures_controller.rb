@@ -28,6 +28,8 @@ class PicturesController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
+    @comments = @picture.comments.includes(:user)
   end
 
   private
