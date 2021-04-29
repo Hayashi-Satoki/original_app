@@ -1,0 +1,5 @@
+    <%= form_with(model: picture, local: true) do |form| %>
+      <%= form.text_field :family_id, placeholder: "Familyname" %>
+      <%= form.text_area :description, placeholder: "text", rows: "10" %>
+      <%= form.submit "SEND" %>
+    <% end %>

@@ -3,7 +3,7 @@ class PicturesController < ApplicationController
   before_action :move_to_index, except: [:index, :show]
 
   def index
-    @pictures = Picture.all
+    @pictures = Picture.all.includes(:user).order("created_at DESC")
   end
 
   def new

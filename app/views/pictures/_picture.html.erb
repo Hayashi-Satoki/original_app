@@ -1,0 +1,22 @@
+    <%# <div class="content_post" <%= picture.image %>pic
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '詳細', picture_path(picture.id), method: :get %>
+          </li>
+          <% if user_signed_in? && current_user.id == picture.user_id %>
+            <li>
+              <%= link_to '編集', edit_picture_path(picture.id), method: :get %>
+            </li>
+            <li>
+              <%= link_to '削除', picture_path(picture.id), method: :delete %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <p><%= picture.description %></p>
+      <span class="name">
+        <%= picture.family_id %>
+      </span>
+    <%# </div> %>
