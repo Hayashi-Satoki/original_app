@@ -30,11 +30,9 @@ class PicturesController < ApplicationController
   def show
   end
 
-
-
   private
   def pictures_params
-    params.require(:picture).permit(:description, :family_id)
+    params.require(:picture).permit(:description, :family_id).merge(user_id: current_user.id)
   end
 
   def set_picture
