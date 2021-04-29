@@ -1,9 +1,9 @@
 <div class="contents row">
   <% @pictures.each do |picture| %>
     <%# <div class="content_post" style="background-image: url(<%= picture.image %>);"> %>
-      <p><%= picture.text %></p>
+      <p><%= picture.description %></p>
       <span class="name">
-        <%= picture.name %>
+        <%= picture.family_id %>
       </span>
     </div>
   <% end %>
