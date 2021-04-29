@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:edit, :show]
-  before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @pictures = Picture.all.includes(:user).order("created_at DESC")
@@ -31,6 +31,11 @@ class PicturesController < ApplicationController
     @comment = Comment.new
     @comments = @picture.comments.includes(:user)
   end
+
+  def search
+    @pictures = Picture.search(params[:keyword])
+  end
+
 
   private
   def pictures_params
