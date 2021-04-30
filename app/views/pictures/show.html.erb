@@ -1,18 +1,19 @@
 <div class="contents row">
-  <%# <div class="content_post" <%= @picture.image %>pic
-  <% if user_signed_in? && current_user.id == @picture.user_id %>
-    <div class="more">
-      <span><%= image_tag 'arrow_top.png' %></span>
-      <ul class="more_list">
-        <li>
-          <%= link_to '編集', edit_picture_path(@picture.id), method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', picture_path(@picture.id), method: :delete %>
-        </li>
-      </ul>
-    </div>
-  <% end %>
+  <div class="content_post" >
+      <p><%= image_tag @picture.image.variant(resize: '500x500'), class: 'picture-image' if @picture.image.attached?%></p>
+    <% if user_signed_in? && current_user.id == @picture.user_id %>
+      <div class="more">
+        <span><%= image_tag 'arrow_top.png' %></span>
+        <ul class="more_list">
+          <li>
+            <%= link_to '編集', edit_picture_path(@picture.id), method: :get %>
+          </li>
+          <li>
+            <%= link_to '削除', picture_path(@picture.id), method: :delete %>
+          </li>
+        </ul>
+      </div>
+    <% end %>
     <p><%= @picture.description %></p>
     <span class="name"><%= @picture.family_id %>
     </span>
