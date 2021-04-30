@@ -37,11 +37,12 @@ class PicturesController < ApplicationController
   end
 
   def papafamily
+    @pictures = Picture.where(family_id: [3, 4])
   end
 
   def mamafamily
+    @pictures = Picture.where(family_id: [3, 5])
   end
-
 
   private
   def pictures_params

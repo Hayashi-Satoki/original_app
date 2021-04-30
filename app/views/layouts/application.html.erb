@@ -15,10 +15,10 @@
         <h1 class="grid-6"><a href="/">My sweet baby girl</a></h1>
         <% if user_signed_in? %>
           <div class="user_nav grid-6">
-          <span><%= current_user.nickname %>
+          <span><%= "Menu" %>
             <ul class="user__info">
               <li>
-                <%= link_to "夫婦用", "/users/#{current_user.id}" %>
+                <%= link_to "夫婦用", pictures_path %>
                 <%= link_to "パパ実家用", papafamily_pictures_path %>
                 <%= link_to "ママ実家用", mamafamily_pictures_path %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
