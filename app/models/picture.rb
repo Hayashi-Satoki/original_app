@@ -1,4 +1,7 @@
 class Picture < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
+  belongs_to :family
+
   validates :description, presence: true
   validates :family_id, presence: true
   belongs_to :user

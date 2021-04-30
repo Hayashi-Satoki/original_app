@@ -36,6 +36,12 @@ class PicturesController < ApplicationController
     @pictures = Picture.search(params[:keyword])
   end
 
+  def papafamily
+  end
+
+  def mamafamily
+  end
+
 
   private
   def pictures_params

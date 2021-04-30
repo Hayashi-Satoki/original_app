@@ -1,8 +1,8 @@
 <div class="contents row">
   <p><%= @nickname %>の投稿一覧</p>
   <% @pictures.each do |picture| %>
-    <%# <div class="content_post" style="background-image: url(<%= picture.image %>);"> %>
-      <p><%= picture.description %></p>
+        <p><%= picture.description %></p>
+      <p><%= image_tag picture.image.variant(resize: '500x500'), class: 'picture-image' if picture.image.attached?%></p>
     </div>
   <% end %>
 </div>

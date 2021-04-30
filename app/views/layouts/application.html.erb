@@ -18,9 +18,9 @@
           <span><%= current_user.nickname %>
             <ul class="user__info">
               <li>
-                <%= link_to "マイページ", "/users/#{current_user.id}" %>
-                <%# <%= link_to "父の実家", "#" %>
-                <%# <%= link_to "母の実家", "#" %>
+                <%= link_to "夫婦用", "/users/#{current_user.id}" %>
+                <%= link_to "パパ実家用", papafamily_pictures_path %>
+                <%= link_to "ママ実家用", mamafamily_pictures_path %>
                 <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
               </li>
             </ul>
