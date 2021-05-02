@@ -1,6 +1,7 @@
     <%= form_with(model: picture, local: true) do |form| %>
-      <%= form.text_area :description, placeholder: "text", rows: "5" %>
+      <%= form.text_area :description, placeholder: "写真の説明", rows: "5" %>
       <%= form.collection_select(:family_id, Family.all, :id, :name ) %>
       <%= form.file_field :image, id:"item-image" %>
       <%= form.submit "SEND" %>
+      <div id="image-list"></div>
     <% end %>

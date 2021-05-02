@@ -1,5 +1,3 @@
-<div> <%= "ママ家"%> </div>
-
 <%= form_with(url: search_pictures_path, local: true, method: :get, class: "search-form") do |form| %>
   <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
   <%= form.submit "検索", class: "search-btn" %>
@@ -8,7 +6,9 @@
 <div class="contents row">
   <% @pictures.each do |picture| %>
     <p><%= picture.description %></p>
-    <p><%= image_tag picture.image.variant(resize: '500x500'), class: 'picture-image' if picture.image.attached?%></p>
+    <%= link_to  "#", method: :get do %>
+      <p class="pics"><%= image_tag picture.image.variant(resize: '500x400'), class: 'picture-image' if picture.image.attached?%></p>
+    <% end %>
   <% end %>
 </div>
 

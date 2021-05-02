@@ -12,7 +12,13 @@ Rails.application.routes.draw do
       get 'papafamily'
     end
     collection do
+      get 'papashow'
+    end
+    collection do
       get 'mamafamily'
+    end
+    collection do
+      get 'mamashow'
     end
   end
   resources :users, only: :show

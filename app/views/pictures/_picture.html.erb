@@ -1,19 +1,4 @@
 <p><%= picture.description %></p>
-<p><%= image_tag picture.image.variant(resize: '500x500'), class: 'picture-image' if picture.image.attached?%></p>
-  <div class="more">
-    <span><%= image_tag 'arrow_top.png' %></span>
-    <ul class="more_list">
-      <li>
-        <%= link_to '詳細', picture_path(picture.id), method: :get %>
-      </li>
-      <% if user_signed_in? && current_user.id == picture.user_id %>
-        <li>
-          <%= link_to '編集', edit_picture_path(picture.id), method: :get %>
-        </li>
-        <li>
-          <%= link_to '削除', picture_path(picture.id), method: :delete %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-  
+<%= link_to  picture_path(picture.id), method: :get do %>
+  <p class="pics"><%= image_tag picture.image.variant(resize: '500x400'), class: 'picture-image' if picture.image.attached?%></p>
+<% end %>

@@ -1,6 +1,7 @@
 <div class="contents row">
+  <p class="description"><%= @picture.description %></p>
   <div class="content_post" >
-    <p><%= image_tag @picture.image.variant(resize: '500x500'), class: 'picture-image' if @picture.image.attached?%></p>
+    <p class="pics"><%= image_tag @picture.image.variant(resize: '400x400'), class: 'picture-image' if @picture.image.attached?%></p>
     <% if user_signed_in? && current_user.id == @picture.user_id %>
       <div class="more">
         <span><%= image_tag 'arrow_top.png' %></span>
@@ -14,13 +15,12 @@
         </ul>
       </div>
     <% end %>
-    <p><%= @picture.description %></p>
   </div>
     <div class="container">
       <% if user_signed_in? %>
         <%= form_with(model: [@picture, @comment], local: true) do |form| %>
           <%= form.text_area :text, placeholder: "コメントする", rows: "2" %>
-          <%= form.submit "SEND" %>
+          <%= form.submit "コメントを投稿する" %>
         <% end %>
       <% else %>
         <strong><p>※ コメントの投稿には新規登録/ログインが必要です ※</p></strong>

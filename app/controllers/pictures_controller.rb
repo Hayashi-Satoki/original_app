@@ -37,10 +37,20 @@ class PicturesController < ApplicationController
   end
 
   def papafamily
+    @pictures = Picture.where(family_id: [3, 4]).order("created_at DESC")
+  end
+
+  def papashow
+    @picture = Picture.where(family_id: [3, 5])
     @pictures = Picture.where(family_id: [3, 4])
   end
 
   def mamafamily
+    @pictures = Picture.where(family_id: [3, 5]).order("created_at DESC")
+  end
+
+  def mamashow
+    @picture = Picture.where(family_id: [3, 5])
     @pictures = Picture.where(family_id: [3, 5])
   end
 
