@@ -11,7 +11,15 @@ class PicturesController < ApplicationController
   end
    
   def create
-    Picture.create(pictures_params)
+    @picture = Picture.new(pictures_params)
+    #バリデーションで問題があれば、保存はされず「投稿画面」に戻る
+    if @picture.valid?
+      @picture.save
+      redirect_to root_path
+    else
+      #保存されなければ、newに戻る
+      render :new
+    end
   end
 
   def destroy

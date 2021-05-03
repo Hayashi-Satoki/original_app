@@ -1,6 +1,16 @@
 <div class="contents row">
   <div class="container">
-    <h3>投稿する</h3>
-    <%= render partial: "form", locals: { picture: @picture } %>
+    <%= form_with(model: @picture, local: true) do |form| %>
+      <h3>
+        投稿する
+      </h3>
+        <%# <%= render 'layouts/error_messages', model: form.object %>
+
+        <%= form.text_area :description, placeholder: "写真の説明", rows: "5" %>
+        <%= form.collection_select(:family_id, Family.all, :id, :name ) %>
+        <%= form.file_field :image, id:"item-image" %>
+        <%= form.submit "SEND" %>
+        <div id="image-list"></div>
+    <% end %>  
   </div>
 </div>
