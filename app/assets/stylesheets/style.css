@@ -676,7 +676,7 @@ header.header div.header__bar.row div.grid-6 a.post {
   color: #57C3E9;
   font-weight: bold;
   text-align: center;
-  border-radius: 3px;
+  border-radius: 30px;
   display: inline-block;
 }
 
@@ -1023,12 +1023,14 @@ footer p {
 }
 
 .search-form .search-input {
-  width: 30%;
+  width: 37%;
   margin-right: 10px;
+  border-radius: 20px;
 }
 
 .search-form .search-btn {
-  width: 10%;
+  width: 3%;
+  font-family: FontAwesome;
 }
 
 .pics{
