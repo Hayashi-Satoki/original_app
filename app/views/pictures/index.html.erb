@@ -1,10 +1,20 @@
 <%= form_with(url: search_pictures_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: " 投稿を検索する", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: " 検索", class: "search-input" %>
   <%= form.submit "\uF002", class: "search-btn" %>
 <% end %>
 
 <div class="contents row">
   <% @pictures.each do |picture| %>
-      <%= render partial: "picture", locals: { picture: picture } %>
+    <div class="balloon">
+      <span><%= picture.description %></span>
+      <i class="fa fa-camera" aria-hidden="true"></i>
+      <span>by </span><%= picture.user.nickname %>
+    </div>
+    <%= link_to  picture_path(picture.id), method: :get do %>
+      <p class="pics">
+        <%= image_tag picture.image.variant(resize: "500x400"), class: 'picture-image' if picture.image.attached?%>
+      </p>
+    <% end %>
+
   <% end %>
 </div>
