@@ -1,5 +1,5 @@
 <%= form_with(url: search_pictures_path, local: true, method: :get, class: "search-form") do |form| %>
-  <%= form.text_field :keyword, placeholder: " 検索", class: "search-input" %>
+  <%= form.text_field :keyword, placeholder: " キーワードで検索", class: "search-input" %>
   <%= form.submit "\uF002", class: "search-btn" %>
 <% end %>
 
