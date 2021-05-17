@@ -6,7 +6,7 @@
 それぞれの写真にコメントすることも出来ます。  
 
 ## URL
-https://original-app-35238.herokuapp.com/ （開発中）
+https://original-app-35238.herokuapp.com/
 
 ## テスト用アカウント
 Email:papa@email  
